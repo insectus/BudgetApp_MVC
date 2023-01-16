@@ -1,17 +1,19 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
 
 {% block body %}
 
-    <h1>Welcome</h1>
+    <h1>Cześć</h1>
+	
+	{% if current_user %}
+		Cześć {{ current_user.name }}.
+		<a href="/logout"> Logout</a>
+	{% else %}
 
-    {% if current_user %}
-        Hello {{ current_user.name }}.
-
-        <a href="/logout">Log out</a>
-    {% else %}
-        <a href="/signup/new">Sign up</a> or <a href="/login">log in</a>.
-    {% endif %}
+	<a href="/signup/new">Signup</a> or
+	<a href="/login">Login</a>
+	
+	{% endif%}
 
 {% endblock %}
