@@ -39,4 +39,14 @@ class Config
      * @var boolean
      */
     const SHOW_ERRORS = true;
+	
+	const SECRET_KEY = 'QWERTY1234';
+	
+	const PHP_MAILER_HOST = 'smtp.gmail.com';
+	
+	const PHP_MAILER_USERNAME = 'damian.krzaszcz.programista@gmail.com';
+	
+	const PHP_MAILER_PASSWORD = 'twfgmwgthlpzlzpu';
+	
+	
 }
