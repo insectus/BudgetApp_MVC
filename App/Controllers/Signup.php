@@ -33,6 +33,8 @@ class Signup extends \Core\Controller
         $user = new User($_POST);
 
         if ($user->save()) {
+			
+			$user->sendActivationEmail();
 
             $this->redirect('/signup/success');
 
@@ -53,5 +55,22 @@ class Signup extends \Core\Controller
     public function successAction()
     {
         View::renderTemplate('Signup/success.html');
+    }
+	
+	 public function activateAction()
+    {
+        User::activate($this->route_params['token']);
+
+        $this->redirect('/signup/activated');        
+    }
+
+    /**
+     * Show the activation success page
+     *
+     * @return void
+     */
+    public function activatedAction()
+    {
+        View::renderTemplate('Signup/activated.html');
     }
 }

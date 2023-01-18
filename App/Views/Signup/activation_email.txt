@@ -1,0 +1,5 @@
+Aktywacja konta
+
+Dziękujemy z załozenie konta. Kliknij w link aby aktywować konto.
+
+{{ url }}
