@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Zapanuj nad swoimi finansami"/>
+    <meta name="keywords" content="budżet, finanse, oszczędzanie, pieniądze, wydatki, przychody, szczęście"/> 
+    <title>{% block title %}Aplikacj budżetwa{% endblock %}</title>
+    
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/styles.css" />
+	<link rel="stylesheet" href="/css/main.css" />
 	
 </head>
 <body>
@@ -14,12 +17,17 @@
 		<nav class="navbar navbar-default">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Strona domowa</a></li>
+                    {% if current_user %}
+                        <li><a href="/incomes">Przychody</a></li>
+                        <li><a href="/expenses">Wydatki</a></li>
+                        <li><a href="/balance">Bilans</a></li>
+                    {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">                    
                     {% if current_user %}
-                        <li><a href="/profile/show">Profile</a></li>
-                        <li><a href="/logout">Log out</a></li>
+                        <li><a href="/profile/show">Twój profil</a></li>
+                        <li><a href="/logout">Wyloguj się</a></li>
                     {% endif %}
                 </ul>
             </div>

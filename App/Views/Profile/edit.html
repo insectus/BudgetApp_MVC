@@ -37,7 +37,7 @@
                 },
                 messages: {
                     email: {
-                        remote: 'email already taken'
+                        remote: 'Ten e-mail jest już zajęty'
                     }
                 }
             });
@@ -60,7 +60,7 @@
     <h1>Twój profil</h1>
 
     {% if user.errors is not empty %}
-        <p>Błędy:</p>
+        <p>Errors:</p>
         <ul>
             {% for error in user.errors %}
                 <li>{{ error }}</li>
@@ -72,15 +72,15 @@
 
         <div class="form-group">
             <label for="inputName">Imię</label>
-            <input id="inputName" name="name" placeholder="Name" value="{{ user.name }}" required class="form-control" />
+            <input id="inputName" name="name" placeholder="Imię" value="{{ user.name }}" required class="form-control" />
         </div>
         <div class="form-group">
             <label for="inputEmail">Adres email</label>
-            <input id="inputEmail" name="email" placeholder="email address" value="{{ user.email }}" required type="email" class="form-control"/>
+            <input id="inputEmail" name="email" placeholder="Adres e-mail" value="{{ user.email }}" required type="email" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="inputPassword">Hasło</label>
-            <input type="password" id="inputPassword" name="password" placeholder="Password" aria-describedby="helpBlock" class="form-control" />
+            <input type="password" id="inputPassword" name="password" placeholder="Hasło" aria-describedby="helpBlock" class="form-control" />
 			<span id="helpBlock" class="help-block">Pozostaw to pole puste jeżeli nie chcesz zmieniać hasła</span>
         </div>
 

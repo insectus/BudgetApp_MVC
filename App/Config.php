@@ -20,19 +20,19 @@ class Config
      * Database name
      * @var string
      */
-    const DB_NAME = 'mvclogin';
+    const DB_NAME = 'budgetapp';
 
     /**
      * Database user
      * @var string
      */
-    const DB_USER = 'mvcUser';
+    const DB_USER = 'root';
 
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = '1234';
+    const DB_PASSWORD = '';
 
     /**
      * Show or hide error messages on screen
