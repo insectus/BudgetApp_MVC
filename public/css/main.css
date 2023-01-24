@@ -3,3 +3,8 @@ body{
 	background-color: #2F3336;
 	color: #efefef;
 }
+footer{
+	padding: 12px;
+	margin-left: auto;
+	margin-right: auto;
+}

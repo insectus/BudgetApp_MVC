@@ -3,11 +3,33 @@
 {% block title %}Strona główna{% endblock %}
 
 {% block body %}
-
-    <h1>Cześć</h1>
-
-		<a href="/signup/new">Zarejestruj się!</a> or
-		<a href="/login">Zaloguj się!</a>
-
+	<div class="container text-center">
+		<div class="row align-items-start">
+			<div class="col">
+				{% if current_user %}
+				<div class="col p-5" >
+					<p></p>  
+					<header>				                     
+					<h1>Witaj {{ user.name }}!</h1>
+						<p>Ta aplikacja ma za zadanie pomóc Ci w zarządzaniu Twoim budżetem.</p>
+					</header>
+					
+					<p>Co chcesz zrobić?</p>
+					<p>Jeżeli chcesz dodać wydatek przejdż do zakładki: <a class="nav-link" href="/expenses">Wydatki</a></p>
+					<br>
+					<p>Jeżeli chcesz dodać przychód przejdż do zakładki: <a class="nav-link" href="/incomes">Przychody</a></p>								
+					<br>
+					<p>Jeżeli chcesz sprawdzić stan Twoich finansów skorzystaj z narzędia: <a class="nav-link" href="/balance">Bilans</a></p>								
+					<br>
+				</div>
+				
+				{% else %}
+				<h1>Cześć</h1>
+					<a class="nav-link" href="/signup/new">Zarejestruj się!</a> lub
+					<a class="nav-link" href="/login">Zaloguj się!</a>
+				{% endif %}		
+			</div>
+		</div>
+	</div>
 
 {% endblock %}

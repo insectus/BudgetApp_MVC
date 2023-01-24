@@ -12,6 +12,17 @@ use \App\Auth;
  */
 class Home extends \Core\Controller
 {
+    /**
+     * Before filter - called before each action method
+     *
+     * @return void
+     */
+	protected function before()
+    {
+        parent::before();
+
+        $this->user = Auth::getUser();
+    }
 
     /**
      * Show the index page
@@ -20,6 +31,8 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
-        View::renderTemplate('Home/index.html');
+        View::renderTemplate('Home/index.html', [
+            'user' => $this->user
+        ]);
     }
 }
