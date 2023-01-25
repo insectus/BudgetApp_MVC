@@ -5,12 +5,12 @@ namespace App\Controllers;
 use \Core\View;
 
 /**
- * Items controller (example)
+ * Balance controller (example)
  *
  * PHP version 7.0
  */
-//class Items extends \Core\Controller
-class Items extends Authenticated
+//class Balance extends \Core\Controller
+class Balance extends Authenticated
 {
 
     /**
@@ -26,13 +26,13 @@ class Items extends Authenticated
     */
 
     /**
-     * Items index
+     * Balance index
      *
      * @return void
      */
     public function indexAction()
     {
-        View::renderTemplate('Items/index.html');
+        View::renderTemplate('Balance/index.html');
     }
 
     /**

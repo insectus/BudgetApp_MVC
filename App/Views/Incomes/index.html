@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Przychody{% endblock %}
+
+{% block body %}
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col p-5" >
+                <form action="incomes/create" method="post">    
+                    <h3> Dodaj przychód </h3>
+                    
+                    <div class="form-group mt-1">					
+                        <fieldset>						
+                            <legend class="col-sm-2 col-form-label col-form-label-sm"> Kwota: </legend>				
+                            <input class="form-control"  type="number" name="currency-field" step="0.01" min="0.00" id="currency-field" value="" data-type="currency" placeholder="10.00 PLN" required>					
+                        </fieldset>					
+                    </div>
+                    
+                    <div class="form-group mt-1">				
+                        <fieldset>						
+                            <legend class="col-sm-2 col-form-label col-form-label-sm"> Data: </legend>						
+                            <input class="form-control"  type="date" value="<?php echo $today; ?>" name = "date" min="2000-01-01" id="date" required>				
+                        </fieldset>				
+                    </div>
+                    
+                    <div class="form-group mt-1">		
+                        <legend class="col-sm-2 col-form-label col-form-label-sm"> Kategoria: </legend>
+                            <select class="form-select"  name = "selectCategory">
+                                <option selected value = 0>Wynagrodzenie</option>
+                                <option value = 1>Odsetki bankowe</option>
+                                <option value = 2>Sprzedaż na allegro</option>
+                                <option value = 3>Inne</option>
+                            </select>
+                    </div>
+                   
+                    <div class="form-group mt-3">
+                        <label for="comment"> Komentarz (opcjonalnie): </label>
+                        <textarea class="form-control" name="comment" id="comment" rows="2" maxlength="100" minlength="5"  placeholder="To jest miejsce na Twoje notatki"></textarea>
+                        
+                    </div>
+                    
+                    <div class="form-group p-3">
+                        <button class="btn btn-success" type="submit" class="btn btn-default">Dodaj</button>
+                        <a class="nav-link" href="/incomes/index">Anuluj</a>
+                    </div>		
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
