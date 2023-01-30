@@ -8,7 +8,7 @@
     <div class="row align-items-start">
         <div class="col p-5" >
             <form action="expenses/create" method="post">    
-                <h3> Dodaj wydatek - dokończ to! </h3>
+                <h3> Dodaj wydatek</h3>
                 
                 <div class="form-group mt-1">					
                     <fieldset>						
@@ -27,22 +27,35 @@
                 <div class="form-group mt-1">		
                     <legend class="col-sm-2 col-form-label col-form-label-sm"> Kategoria: </legend>
                         <select class="form-select"  name = "selectCategory">
-                            <option selected value = 0>Wynagrodzenie</option>
-                            <option value = 1>Odsetki bankowe</option>
-                            <option value = 2>Sprzedaż na allegro</option>
-                            <option value = 3>Inne</option>
+                            <option selected value = 0>Jedzenie</option>
+                            <option value = 1>Mieszkanie</option>
+                            <option value = 2>Transport</option>
+                            <option value = 3>Telekomunikacja</option>
+                            <option value = 4>Opieka zdrowotna</option>
+                            <option value = 5>Ubranie</option>
+                            <option value = 6>Higiena</option>
+                            <option value = 7>Dzieci</option>
+                            <option value = 8>Rozrywka</option>
+                            <option value = 9>Wycieczka</option>
+                            <option value = 10>Szkolenia</option>
+                            <option value = 11>Książki</option>
+                            <option value = 12>Oszczędności</option>
+                            <option value = 13>Na emeryturę</option>
+                            <option value = 14>Spłata długów</option>
+                            <option value = 15>Darowizna</option>
+                            <option value = 16>Inne wydatki</option>
                         </select>
                 </div>
                
                 <div class="form-group mt-3">
                     <label for="comment"> Komentarz (opcjonalnie): </label>
-                    <textarea class="form-control" name="comment" id="comment" rows="2" maxlength="100" minlength="5"  placeholder="To jest miejsce na Twoje notatki"></textarea>
+                    <textarea class="form-control" name="comment" id="comment" maxlength="100" minlength="5"  placeholder="To jest miejsce na Twoje notatki"></textarea>
                     
                 </div>
                 
                 <div class="form-group p-3">
                     <button class="btn btn-success" type="submit" class="btn btn-default">Dodaj</button>
-                    <a class="nav-link" href="/incomes/index">Anuluj</a>
+                    <a class="nav-link" href="/expenses/index">Anuluj</a>
                 </div>		
                 
             </form>

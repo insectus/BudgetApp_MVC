@@ -20,7 +20,7 @@
                     <div class="form-group mt-1">				
                         <fieldset>						
                             <legend class="col-sm-2 col-form-label col-form-label-sm"> Data: </legend>						
-                            <input class="form-control"  type="date" value="<?php echo $today; ?>" name = "date" min="2000-01-01" id="date" required>				
+                            <input class="form-control"  type="date" value="current_date" name = "date" min="2000-01-01" id="date" required>				
                         </fieldset>				
                     </div>
                     
@@ -36,7 +36,7 @@
                    
                     <div class="form-group mt-3">
                         <label for="comment"> Komentarz (opcjonalnie): </label>
-                        <textarea class="form-control" name="comment" id="comment" rows="2" maxlength="100" minlength="5"  placeholder="To jest miejsce na Twoje notatki"></textarea>
+                        <textarea class="form-control" name="comment" id="comment" maxlength="100" minlength="5"  placeholder="To jest miejsce na Twoje notatki"></textarea>
                         
                     </div>
                     

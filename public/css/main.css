@@ -8,3 +8,13 @@ footer{
 	margin-left: auto;
 	margin-right: auto;
 }
+textarea{
+	resize: none !important;
+}
+.selector-for-some-widget {
+	box-sizing: content-box;
+}
+.modal-footer, .modal-body, .modal-header {
+	background-color: yellowgreen;
+	color: black;
+}
