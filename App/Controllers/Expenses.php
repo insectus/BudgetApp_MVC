@@ -14,25 +14,13 @@ class Expenses extends Authenticated
 {
 
     /**
-     * Require the user to be authenticated before giving access to all methods in the controller
-     *
-     * @return void
-     */
-    /*
-    protected function before()
-    {
-        $this->requireLogin();
-    }
-    */
-
-    /**
      * Expenses index
      *
      * @return void
      */
     public function indexAction()
     {
-        View::renderTemplate('Expenses/index.html');
+        echo "new action";
     }
 
     /**
@@ -41,8 +29,8 @@ class Expenses extends Authenticated
      * @return void
      */
     public function newAction()
-    {
-        echo "new action";
+    {       
+        View::renderTemplate('Expenses/new.html');
     }
 
     /**

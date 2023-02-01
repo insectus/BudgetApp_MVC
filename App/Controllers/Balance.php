@@ -32,7 +32,7 @@ class Balance extends Authenticated
      */
     public function indexAction()
     {
-        View::renderTemplate('Balance/index.html');
+        echo "new action";
     }
 
     /**
@@ -42,7 +42,7 @@ class Balance extends Authenticated
      */
     public function newAction()
     {
-        echo "new action";
+        View::renderTemplate('Balance/new.html');
     }
 
     /**

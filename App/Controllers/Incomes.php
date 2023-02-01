@@ -3,35 +3,10 @@
 namespace App\Controllers;
 
 use \Core\View;
-use \App\Auth;
+use \App\Flash;
 
-/**
- * Incomes controller (example)
- *
- * PHP version 7.0
- */
-//class Incomes extends \Core\Controller
 class Incomes extends Authenticated
 {
-
-    /**
-     * Require the user to be authenticated before giving access to all methods in the controller
-     *
-     * @return void
-     */
-    /*
-    /**
-     * Before filter - called before each action method
-     *
-     * @return void
-     */
-	protected function before()
-    {
-        parent::before();
-
-        $this->user = Auth::getUser();
-    }
-
     /**
      * Incomes index
      *
@@ -39,8 +14,33 @@ class Incomes extends Authenticated
      */
     public function indexAction()
     {
-        View::renderTemplate('Incomes/index.html', [
-            'user' => $this->user
-        ]);
+        echo "index Action";
+    }
+
+    /**
+     * Add a new item
+     *
+     * @return void
+     */
+    public function newAction()
+    {       
+        View::renderTemplate('Incomes/new.html');
+    }
+
+    public function addAction()
+    {
+
+        if (1==1) {
+
+            Flash::addMessage('Przychód dodano');
+
+            $this->redirect('/incomes/new');
+
+        } else {
+            Flash::addMessage('Niepowodzenie! Spróbuj ponownie dodać przychód');
+
+            View::renderTemplate('Incomes/new.html');
+
+        }
     }
 }
