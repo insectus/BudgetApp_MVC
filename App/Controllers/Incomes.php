@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use \Core\View;
 use \App\Flash;
+use \App\Models\MoneyRotation;
 
 class Incomes extends Authenticated
 {
@@ -29,8 +30,9 @@ class Incomes extends Authenticated
 
     public function addAction()
     {
+        $moneyRotation = new MoneyRotation($_POST);
 
-        if (1==1) {
+        if ($moneyRotation->addAmount()) {
 
             Flash::addMessage('Przychód dodano');
 
