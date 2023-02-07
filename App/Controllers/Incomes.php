@@ -5,17 +5,15 @@ namespace App\Controllers;
 use \Core\View;
 use \App\Flash;
 use \App\Models\MoneyRotation;
+use \App\Auth;
 
-class Incomes extends Authenticated
+class Incomes extends  Authenticated
 {
-    /**
-     * Incomes index
-     *
-     * @return void
-     */
-    public function indexAction()
+    protected function before()
     {
-        echo "index Action";
+        parent::before();
+
+        $this->user = Auth::getUser();
     }
 
     /**
@@ -25,18 +23,19 @@ class Incomes extends Authenticated
      */
     public function newAction()
     {       
-        View::renderTemplate('Incomes/new.html');
+        View::renderTemplate('Incomes/new.html');       
     }
 
-    public function addAction()
+    public function addIncomeAction()
     {
         $moneyRotation = new MoneyRotation($_POST);
-
-        if ($moneyRotation->addAmount()) {
+        
+        if ($moneyRotation->addIncomeAmount()) {
 
             Flash::addMessage('Przychód dodano');
 
             $this->redirect('/incomes/new');
+           
 
         } else {
             Flash::addMessage('Niepowodzenie! Spróbuj ponownie dodać przychód');

@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use \Core\View;
+use \App\Flash;
+use \App\Models\MoneyRotation;
+use \App\Auth;
 
 /**
  * Expenses controller (example)
@@ -12,17 +15,12 @@ use \Core\View;
 //class Expenses extends \Core\Controller
 class Expenses extends Authenticated
 {
-
-    /**
-     * Expenses index
-     *
-     * @return void
-     */
-    public function indexAction()
+    protected function before()
     {
-        echo "new action";
-    }
+        parent::before();
 
+        $this->user = Auth::getUser();
+    }
     /**
      * Add a new item
      *
@@ -34,12 +32,26 @@ class Expenses extends Authenticated
     }
 
     /**
-     * Show an item
+     * Add expense
      *
      * @return void
      */
-    public function showAction()
+    public function addExpenseAction()
     {
-        echo "show action";
+        $moneyRotation = new MoneyRotation($_POST);
+        
+        if ($moneyRotation->addExpenseAmount()) {
+
+            Flash::addMessage('Wydatek dodano');
+
+            $this->redirect('/expenses/new');
+           
+
+        } else {
+            Flash::addMessage('Niepowodzenie! Spróbuj ponownie dodać wydatek');
+
+            View::renderTemplate('Expenses/new.html');
+
+        }
     }
 }
