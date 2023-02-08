@@ -40,20 +40,21 @@ class Balance extends Authenticated
      */
     public function showAction()
     {
-        $moneyRotation = new MoneyRotation($_POST);
+        $moneyRotation = MoneyRotation::findTimePeriode($_POST['selectTimePeriode']);
+        var_dump($moneyRotation);
 
-        if ($moneyRotation->showBalance()) {
+        //if ($moneyRotation->showBalance()) {
 
-            View::renderTemplate('Balance/show.html',[
+            //View::renderTemplate('Balance/show.html',[
                 //'moneyRotation' => $this->moneyRotation
-            ]);
+           // ]);
            
 
-        } else {
-            Flash::addMessage('Niepowodzenie! Spróbuj ponownie wyświetlić bilas');
+        //} else {
+            //Flash::addMessage('Niepowodzenie! Spróbuj ponownie wyświetlić bilas');
 
-            $this->redirect('/balance/new');
+           // $this->redirect('/balance/new');
 
-        }
+        //}
     }
 }

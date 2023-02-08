@@ -79,8 +79,48 @@ class MoneyRotation extends \Core\Model
     public function showBalance()
     {
         $user = Auth::getUser();
-        return true;
+        //return true;
        // return $stmt->execute();
+     
+    }
+
+    public static function findTimePeriode($selectTimePeriode)
+    {
+        if($selectTimePeriode==0){
+
+           $sql = 'SELECT * FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
+
+        }else if($selectTimePeriode==1){
+
+            $sql = "SELECT * FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)";
+        
+        }else if($selectTimePeriode==2){
+
+            //$sql = "SELECT SUM(amount) FROM incomes WHERE YEAR(date_of_income) = YEAR(CURRENT_DATE())";
+            $sql = "SELECT * FROM incomes WHERE YEAR(date_of_income) = YEAR(CURRENT_DATE())";
+
+        }else if($_POST['selectTimePeriode'] == 3){
+								
+            $dateB = $_POST['dateBegin'];
+            $dateE = $_POST['dateEnd'];			
+            
+            if($dateE < $dateB){
+                $buffer = $dateE;
+                $dateE = $dateB;
+                $dateB = $buffer;
+            }
+            
+        $sql = "SELECT * FROM incomes WHERE date_of_income BETWEEN STR_TO_DATE('$dateB','%Y-%m-%d')  AND STR_TO_DATE('$dateE','%Y-%m-%d')";
+        
+        }
+        
+        $db = static::getDB();
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->execute();
+
+        return $stmt->fetch();      
     }
 
 }
