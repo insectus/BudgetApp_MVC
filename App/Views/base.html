@@ -44,27 +44,29 @@
 				{{ message.body }}
 			</div>
 		{% endfor %}
+        
+        <div class="container text-center">
+            {% block body %}
+		    {% endblock %} 
+        </div>
 
-		{% block body %}
-		{% endblock %}
-
-
-        <footer class="container bd-footer  bg-secondary rounded position-absolute bottom-0 start-50 translate-middle-x p-2">
-            <div class="container text-center">
-                <div class="row ">
-                    <div class="col">
-                        Aplikacja budżetowa. Wszelkie prawa zastrzeżone &reg
+	</div> 
+    {% block footer %}
+        <div class="navbar-text fixed-bottom">
+            <footer class="container bd-footer  bg-secondary rounded position-absolute bottom-0 start-50 translate-middle-x p-2">
+                <div class="container text-center">
+                    <div class="row ">
+                        <div class="col">
+                            Aplikacja budżetowa. Wszelkie prawa zastrzeżone &reg
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-
-	</div>
+            </footer> 
+        </div>
+    {% endblock %} 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-
-    {% block footer %}
-    {% endblock %}
+  
 </body>
 </html>

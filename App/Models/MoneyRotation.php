@@ -76,4 +76,11 @@ class MoneyRotation extends \Core\Model
         return $stmt->execute();
     }
 
+    public function showBalance()
+    {
+        $user = Auth::getUser();
+        return true;
+       // return $stmt->execute();
+    }
+
 }

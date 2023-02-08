@@ -3,6 +3,10 @@
 namespace App\Controllers;
 
 use \Core\View;
+use \App\Flash;
+use \App\Models\MoneyRotation;
+use \App\Auth;
+
 
 /**
  * Balance controller (example)
@@ -12,27 +16,11 @@ use \Core\View;
 //class Balance extends \Core\Controller
 class Balance extends Authenticated
 {
-
-    /**
-     * Require the user to be authenticated before giving access to all methods in the controller
-     *
-     * @return void
-     */
-    /*
     protected function before()
     {
-        $this->requireLogin();
-    }
-    */
+        parent::before();
 
-    /**
-     * Balance index
-     *
-     * @return void
-     */
-    public function indexAction()
-    {
-        echo "new action";
+        $this->user = Auth::getUser();
     }
 
     /**
@@ -52,6 +40,20 @@ class Balance extends Authenticated
      */
     public function showAction()
     {
-        echo "show action";
+        $moneyRotation = new MoneyRotation($_POST);
+
+        if ($moneyRotation->showBalance()) {
+
+            View::renderTemplate('Balance/show.html',[
+                //'moneyRotation' => $this->moneyRotation
+            ]);
+           
+
+        } else {
+            Flash::addMessage('Niepowodzenie! Spróbuj ponownie wyświetlić bilas');
+
+            $this->redirect('/balance/new');
+
+        }
     }
 }
