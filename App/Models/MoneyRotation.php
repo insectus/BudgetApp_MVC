@@ -76,11 +76,10 @@ class MoneyRotation extends \Core\Model
         return $stmt->execute();
     }
 
-    public function showBalance()
+    public function showBalance($selectTimePeriode)
     {
-        $user = Auth::getUser();
-        //return true;
-       // return $stmt->execute();
+
+        return static::findTimePeriode($selectTimePeriode) !== false;
      
     }
 
@@ -88,6 +87,7 @@ class MoneyRotation extends \Core\Model
     {
         if($selectTimePeriode==0){
 
+           //$sql = 'SELECT SUM(amount) FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
            $sql = 'SELECT * FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
 
         }else if($selectTimePeriode==1){
@@ -96,7 +96,6 @@ class MoneyRotation extends \Core\Model
         
         }else if($selectTimePeriode==2){
 
-            //$sql = "SELECT SUM(amount) FROM incomes WHERE YEAR(date_of_income) = YEAR(CURRENT_DATE())";
             $sql = "SELECT * FROM incomes WHERE YEAR(date_of_income) = YEAR(CURRENT_DATE())";
 
         }else if($_POST['selectTimePeriode'] == 3){
@@ -117,6 +116,8 @@ class MoneyRotation extends \Core\Model
         $db = static::getDB();
 
         $stmt = $db->prepare($sql);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
 
         $stmt->execute();
 

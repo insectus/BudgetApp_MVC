@@ -16,7 +16,7 @@
                 <div class="form-group mt-1">
                     <legend class="col-sm-2 col-form-label col-form-label-sm"> Kategoria: </legend>
                     <select class="form-select" multiple aria-label="multiple select example" name = "selectTimePeriode" id="myselect">
-                        <option value = 0>Bieżący miesiąc</option>
+                        <option selected value = 0>Bieżący miesiąc</option>
                         <option value = 1>Poprzedni miesiąc</option>
                         <option value = 2>Bieżący rok</option>
                         <option value = 3 data-bs-toggle="modal" data-bs-target="#exampleModal">Niestandardowy</option>
@@ -70,7 +70,8 @@
                             <tbody>
                             <tr>
                                 <td>Suma Twoich przychodów:</td>
-                                <td>Otto</td>
+                                <!-- <td>to jest {{ moneyRotation.amount }} ta suma </td> -->
+                                <td>{{ moneyRotation.amount }} zł</td>
                             </tr>
                             <tr>
                                 <td>Wynagrodzenie:</td>
