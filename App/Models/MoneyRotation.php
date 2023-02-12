@@ -87,8 +87,10 @@ class MoneyRotation extends \Core\Model
     {
         if($selectTimePeriode==0){
 
-           //$sql = 'SELECT SUM(amount) FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
-           $sql = 'SELECT * FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
+           $sql = 'SELECT SUM(amount) as total FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
+           //$sql = 'SELECT * FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
+           //$sql = 'SELECT * FROM incomes WHERE income_category_assigned_to_user_id = 2';
+
 
         }else if($selectTimePeriode==1){
 
@@ -116,12 +118,13 @@ class MoneyRotation extends \Core\Model
         $db = static::getDB();
 
         $stmt = $db->prepare($sql);
+        
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
 
         $stmt->execute();
-
-        return $stmt->fetch();      
+        
+        return $stmt->fetchAll();
     }
 
 }

@@ -40,14 +40,15 @@ class Balance extends Authenticated
      */
     public function showAction()
     {
-       $moneyRotation = MoneyRotation::findTimePeriode($_POST['selectTimePeriode']);
-     //var_dump($moneyRotation);
+        $moneyRotation = MoneyRotation::findTimePeriode($_POST['selectTimePeriode']);
+        var_dump($moneyRotation);
+    
 
         if ($moneyRotation) {
 
-            View::renderTemplate('Balance/show.html',[
+           View::renderTemplate('Balance/show.html',[
               'moneyRotation' => $moneyRotation
-          ]);
+         ]);
            
 
         //} else {
@@ -55,6 +56,6 @@ class Balance extends Authenticated
 
            // $this->redirect('/balance/new');
 
-       }
+      }
     }
 }

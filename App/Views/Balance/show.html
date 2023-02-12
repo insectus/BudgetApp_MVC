@@ -69,9 +69,11 @@
                             </thead>
                             <tbody>
                             <tr>
+                                {% for incomeByCategory in moneyRotation %}
                                 <td>Suma Twoich przychodów:</td>
                                 <!-- <td>to jest {{ moneyRotation.amount }} ta suma </td> -->
-                                <td>{{ moneyRotation.amount }} zł</td>
+                                <td> {{ incomeByCategory.total }} zł</td>
+                                {% endfor %}
                             </tr>
                             <tr>
                                 <td>Wynagrodzenie:</td>
