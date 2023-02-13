@@ -13,20 +13,20 @@
                 <div class="form-group mt-1">					
                     <fieldset>						
                         <legend class="col-sm-2 col-form-label col-form-label-sm"> Kwota: </legend>				
-                        <input class="form-control"  type="number" name="currency_field" step="0.01" min="0.00" id="currency-field" value="" data-type="currency" placeholder="10.00 PLN" required>					
+                        <input class="form-control"  type="number" name="currency_field" value="{{ income.amount }}" step="0.01" min="0.00" id="currency-field" value="" data-type="currency" placeholder="10.00 PLN" required>					
                     </fieldset>					
                 </div>
                 
                 <div class="form-group mt-1">				
                     <fieldset>						
                         <legend class="col-sm-2 col-form-label col-form-label-sm"> Data: </legend>						
-                        <input class="form-control"  type="date" value="<?php echo $today; ?>" name = "date" min="2000-01-01" id="date" required>				
+                        <input class="form-control"  type="date" value="{{ income.date_of_expense }}" name = "date" min="2000-01-01" id="date" required>				
                     </fieldset>				
                 </div>
                 
                 <div class="form-group mt-1">		
                     <legend class="col-sm-2 col-form-label col-form-label-sm"> Kategoria: </legend>
-                        <select class="form-select"  name = "selectCategory">
+                        <select class="form-select"  name = "selectCategory" value="{{ income.expense_category_assigned_to_user_id }}" >
                             <option selected value = 0>Jedzenie</option>
                             <option value = 1>Mieszkanie</option>
                             <option value = 2>Transport</option>

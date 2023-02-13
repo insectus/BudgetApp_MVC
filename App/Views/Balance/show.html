@@ -71,26 +71,37 @@
                             <tr>
                                 {% for incomeByCategory in moneyRotation %}
                                 <td>Suma Twoich przychodów:</td>
-                                <!-- <td>to jest {{ moneyRotation.amount }} ta suma </td> -->
-                                <td> {{ incomeByCategory.total }} zł</td>
+                                <td  class="text-center"> {{ incomeByCategory.total }} zł</td>
                                 {% endfor %}
                             </tr>
+                            {% for income in allUserIncomes %}
                             <tr>
+                                
                                 <td>Wynagrodzenie:</td>
-                                <td>Thornton</td>
+                                {% if income.name == 0 %} 
+                                <td class="text-center">{{ income.amount }}</td>
+                                 {% endif %} 
+                                
                             </tr>
                             <tr>
                                 <td>Odsetki bankowe:</td>
-                                <td>@twitter</td>
+                                {% if income.name == 1 %} 
+                                <td class="text-center">{{ income.amount }}</td>
+                                {% endif %} 
                             </tr>
                             <tr>
                                 <td>Sprzedaż na Allegro:</td>
-                                <td>@twitter</td>
+                                {% if income.name == 2 %} 
+                                <td class="text-center">{{ income.amount }}</td>
+                                {% endif %} 
                             </tr>
                             <tr>
                                 <td>Inne przychodzy:</td>
-                                <td>@twitter</td>
+                                {% if income.name == 3 %} 
+                                <td class="text-center">{{ income.amount }}</td>
+                                {% endif %} 
                             </tr>
+                             {% endfor %}
                             </tbody>
                         </table>
                     </div>

@@ -29,6 +29,8 @@ class MoneyRotation extends \Core\Model
         };
     }
 
+    
+
      /**
      * Save the income model with the current property values
      *
@@ -36,19 +38,16 @@ class MoneyRotation extends \Core\Model
      */
     public function addIncomeAmount()
     {
-        $user = Auth::getUser();
+        $sql = "INSERT INTO incomes 
+        VALUES (NULL, :userId, :selectCategory, :currency_field, :date, :comment)";
 
-        $sql = 'INSERT INTO incomes (amount, date_of_income, income_category_assigned_to_user_id, income_comment, user_id)
-        VALUES (:currency_field, :date, :selectCategory, :comment, :id)';
-
-        $db = static::getDB();
-        $stmt = $db->prepare($sql);
-
-        $stmt->bindValue(':currency_field', $this->currency_field, PDO::PARAM_STR);
-        $stmt->bindValue(':date', $this->date, PDO::PARAM_STR);
-        $stmt->bindValue(':selectCategory', $this->selectCategory, PDO::PARAM_STR);
-        $stmt->bindValue(':comment', $this->comment, PDO::PARAM_STR);  
-        $stmt->bindValue(':id',  $user->id, PDO::PARAM_STR);  
+            $db = static::getDB();
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':userId',  $_SESSION['user_id'], PDO::PARAM_INT);
+            $stmt->bindValue(':selectCategory', $this->selectCategory, PDO::PARAM_INT);
+            $stmt->bindValue(':currency_field', $this->currency_field, PDO::PARAM_STR);
+            $stmt->bindValue(':date', $this->date, PDO::PARAM_STR);
+            $stmt->bindValue(':comment', $this->comment, PDO::PARAM_STR);
 
         return $stmt->execute();
     }
@@ -59,20 +58,19 @@ class MoneyRotation extends \Core\Model
      */
     public function addExpenseAmount()
     {
-        $user = Auth::getUser();
 
-        $sql = 'INSERT INTO expenses (amount, date_of_expense, expense_category_assigned_to_user_id, expense_comment, user_id)
-        VALUES (:currency_field, :date, :selectCategory, :comment, :id)';
+        $sql = 'INSERT INTO expenses
+        VALUES (NULL, :id, :currency_field, :date, :selectCategory, :comment)';
 
         $db = static::getDB();
         $stmt = $db->prepare($sql);
 
+        $stmt->bindValue(':id', $_SESSION['user_id'], PDO::PARAM_STR);  
         $stmt->bindValue(':currency_field', $this->currency_field, PDO::PARAM_STR);
         $stmt->bindValue(':date', $this->date, PDO::PARAM_STR);
         $stmt->bindValue(':selectCategory', $this->selectCategory, PDO::PARAM_STR);
         $stmt->bindValue(':comment', $this->comment, PDO::PARAM_STR);  
-        $stmt->bindValue(':id',  $user->id, PDO::PARAM_STR);  
-
+        
         return $stmt->execute();
     }
 
@@ -82,23 +80,21 @@ class MoneyRotation extends \Core\Model
         return static::findTimePeriode($selectTimePeriode) !== false;
      
     }
-
+    
     public static function findTimePeriode($selectTimePeriode)
     {
         if($selectTimePeriode==0){
 
-           $sql = 'SELECT SUM(amount) as total FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
-           //$sql = 'SELECT * FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE())';
-           //$sql = 'SELECT * FROM incomes WHERE income_category_assigned_to_user_id = 2';
-
+            $month = 'MONTH(date_of_income) = MONTH(CURRENT_DATE())';
+            $sql = 'SELECT SUM(amount) as total FROM incomes WHERE '.$month; 
 
         }else if($selectTimePeriode==1){
-
-            $sql = "SELECT * FROM incomes WHERE MONTH(date_of_income) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)";
+            $prevMonth = 'MONTH(date_of_income) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)';
+            $sql = 'SELECT SUM(amount) as total FROM incomes WHERE '.$prevMonth;
         
         }else if($selectTimePeriode==2){
-
-            $sql = "SELECT * FROM incomes WHERE YEAR(date_of_income) = YEAR(CURRENT_DATE())";
+            $prevYear = 'YEAR(date_of_income) = YEAR(CURRENT_DATE())';
+            $sql = 'SELECT SUM(amount) as total FROM incomes WHERE '. $prevYear;
 
         }else if($_POST['selectTimePeriode'] == 3){
 								
@@ -110,11 +106,33 @@ class MoneyRotation extends \Core\Model
                 $dateE = $dateB;
                 $dateB = $buffer;
             }
+            //'dateBegin' = $dateB;
+            //'dateEnd' = $dateE;
+            $dateFormat = "\'%Y-%m-%d\'";
+             $customPeriode = " date_of_income BETWEEN STR_TO_DATE(".$dateB." , %Y-%m-%d)  AND STR_TO_DATE(".$dateE." , %Y-%m-%d) ";
             
-        $sql = "SELECT * FROM incomes WHERE date_of_income BETWEEN STR_TO_DATE('$dateB','%Y-%m-%d')  AND STR_TO_DATE('$dateE','%Y-%m-%d')";
+        $sql = "SELECT SUM(amount) as total FROM incomes WHERE date_of_income BETWEEN STR_TO_DATE('$dateB','%Y-%m-%d')  AND STR_TO_DATE('$dateE','%Y-%m-%d')";
+        //$sql = 'SELECT SUM(amount) as total FROM incomes WHERE '.$customPeriode;
         
         }
         
+        return static::findQueryResult($sql);  
+        
+    }
+
+    public static function getAllUserIncomes()
+    {
+        $sql = "SELECT id, amount, date_of_income, income_comment, income_category_assigned_to_user_id
+                FROM incomes
+                WHERE  MONTH(date_of_income) = MONTH(CURRENT_DATE()) AND income_category_assigned_to_user_id = 2";
+
+                return static::findQueryResult($sql);
+
+    }
+
+    public static function findQueryResult($sql)
+    {
+
         $db = static::getDB();
 
         $stmt = $db->prepare($sql);
