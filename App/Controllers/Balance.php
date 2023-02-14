@@ -40,16 +40,53 @@ class Balance extends Authenticated
      */
     public function showAction()
     {
-        $moneyRotation = MoneyRotation::findTimePeriode($_POST['selectTimePeriode']);
-        //$moneyRotation = MoneyRotation::findTimePeriode($_POST['selectTimePeriode']);
-        $allUserIncomes = MoneyRotation::getAllUserIncomes();
-        //var_dump($allUserIncomes);
+        $allUserIncomes = MoneyRotation::getAllUserIncomes($_POST['selectTimePeriode']);
+        $allSalary = MoneyRotation::getSalary($_POST['selectTimePeriode']);
+        $allIntrest = MoneyRotation::getIntrest($_POST['selectTimePeriode']);
+        $allAllegro = MoneyRotation::getAllegro($_POST['selectTimePeriode']);
+        $allAnother = MoneyRotation::getAnother($_POST['selectTimePeriode']);
+        //var_dump($allSalary);
+        $allUserExpenses = MoneyRotation::getAllUserExpense($_POST['selectTimePeriode']);
+        $allTransport = MoneyRotation::getTransport($_POST['selectTimePeriode']);
+        $allBooks = MoneyRotation::getBooks($_POST['selectTimePeriode']);
+        $allFood = MoneyRotation::getFood($_POST['selectTimePeriode']);
+        $allApart = MoneyRotation::getApart($_POST['selectTimePeriode']);
+        $allTelec = MoneyRotation::getTelec($_POST['selectTimePeriode']);
+        $allHealth = MoneyRotation::getHealth($_POST['selectTimePeriode']);
+        $allClothes = MoneyRotation::getClothes($_POST['selectTimePeriode']);
+        $allHygen = MoneyRotation::getHygen($_POST['selectTimePeriode']);
+        $allKids = MoneyRotation::getKids($_POST['selectTimePeriode']);
+        $allTrip = MoneyRotation::getTrip($_POST['selectTimePeriode']);
+        $allSavin = MoneyRotation::getSavin($_POST['selectTimePeriode']);
+        $allReti = MoneyRotation::getReti($_POST['selectTimePeriode']);
+        $allDebt = MoneyRotation::getDebt($_POST['selectTimePeriode']);
+        $allGift = MoneyRotation::getGift($_POST['selectTimePeriode']);
+        $allAnoth = MoneyRotation::getAnoth($_POST['selectTimePeriode']);
 
-        if ($moneyRotation) {
-
+        if ($allUserIncomes) {
            View::renderTemplate('Balance/show.html',[
-            'moneyRotation' => $moneyRotation,
-            'allUserIncomes' => $allUserIncomes
+            'allUserIncomes' => $allUserIncomes,
+            'allSalary' => $allSalary,
+            'allIntrest' => $allIntrest,
+            'allAllegro' => $allAllegro,
+            'allAnother' => $allAnother,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses,
+            'allUserExpenses' => $allUserExpenses
          ]);
            
 

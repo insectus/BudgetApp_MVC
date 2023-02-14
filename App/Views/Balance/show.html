@@ -57,51 +57,67 @@
             </form>                    
             <div class="container text-center">
                 <div class="container text-center">
-                    <h3>Nowy bilans z ...</h3>
+                    <h3>Nowy bilans</h3>
                 </div>  
                 <div class="row align-items-start">
                     <div class="col">
                         <table class="table table-dark table-striped table-bordered border-light" id="incomes">
                             <thead>
                             <tr>
-                                <th colspan="2" scope="col" class="table-success">Przychody</th>
+                                <th colspan="2" scope="col" class="table-success text-center">Przychody</th>
                             </tr>
                             </thead>
                             <tbody>
+                                {% for incomeSum in allUserIncomes %}
                             <tr>
-                                {% for incomeByCategory in moneyRotation %}
                                 <td>Suma Twoich przychodów:</td>
-                                <td  class="text-center"> {{ incomeByCategory.total }} zł</td>
-                                {% endfor %}
+                                {% if incomeSum.sum > 0 %}
+                                <td  class="text-center"> {{ incomeSum.sum }} zł</td> 
+                                {% else %}
+                                <td  class="text-center"> 0 zł</td> 
+                                {% endif %}
                             </tr>
-                            {% for income in allUserIncomes %}
+                            {% endfor %}
+                            {% for salary in allSalary %}
                             <tr>
-                                
                                 <td>Wynagrodzenie:</td>
-                                {% if income.name == 0 %} 
-                                <td class="text-center">{{ income.amount }}</td>
-                                 {% endif %} 
-                                
+                                {% if salary.sum > 0 %}
+                                <td class="text-center">{{ salary.sum }} zł</td> 
+                                {% else %}
+                                <td  class="text-center"> 0 zł</td> 
+                                {% endif %}                     
                             </tr>
+                            {% endfor %}
+                            {% for interst in allIntrest %}
                             <tr>
                                 <td>Odsetki bankowe:</td>
-                                {% if income.name == 1 %} 
-                                <td class="text-center">{{ income.amount }}</td>
+                                {% if interst.sum > 0 %}
+                                 <td class="text-center" value="{{ interst.sum }}" id="intrest">{{ interst.sum }} zł</td>
+                                 {% else %}
+                                <td  class="text-center"> 0 zł</td> 
                                 {% endif %} 
                             </tr>
+                            {% endfor %}
+                            {% for allegro in allAllegro %}
                             <tr>
                                 <td>Sprzedaż na Allegro:</td>
-                                {% if income.name == 2 %} 
-                                <td class="text-center">{{ income.amount }}</td>
+                                {% if allegro.sum > 0 %}
+                                <td class="text-center">{{ allegro.sum }} zł</td>
+                                {% else %}
+                                <td  class="text-center"> 0 zł</td> 
                                 {% endif %} 
                             </tr>
+                            {% endfor %}
+                            {% for another in allAnother %}
                             <tr>
-                                <td>Inne przychodzy:</td>
-                                {% if income.name == 3 %} 
-                                <td class="text-center">{{ income.amount }}</td>
+                                <td>Inne przychody:</td>
+                                {% if another.sum > 0 %}
+                                <td class="text-center">{{ another.sum }} zł</td>
+                                {% else %}
+                                <td  class="text-center"> 0 zł</td> 
                                 {% endif %} 
                             </tr>
-                             {% endfor %}
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -109,82 +125,190 @@
                         <table class="table table-dark table-striped table-bordered border-light" id="expense">
                             <thead>
                                 <tr>
-                                    <th colspan="2" scope="col" class="table-danger">Wydatki</th>
+                                    <th colspan="2" scope="col" class="table-danger text-center">Wydatki</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Suma Twoich wydatków:</td>
-                                    <td>Otto</td>
+                                    {% if expenseSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}  
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Jedzenie:</td>
-                                    <td>Thornton</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Mieszkanie:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Transport:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Telekomunikacja:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Opieka zdrowotna:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Ubranie:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Higiena:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Dzieci:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Rozrywka:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Wycieczka:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Szkolenia:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Książki:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Oszczędności:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Na emeryturę:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Spłata długów:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Darowizna:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
+                                {% for expenseSum in allUserExpenses %}
                                 <tr>
                                     <td>Inne wydatki:</td>
-                                    <td>@twitter</td>
+                                    {% if incomeSum.sum > 0 %}
+                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
                                 </tr>
+                                {% endfor %}
                                 </tbody>
                         </table>
                     </div>
@@ -192,13 +316,28 @@
                 <table class="table table-dark table-striped table-bordered border-light" id="incomes">
                     <thead>
                     <tr>
-                        <th colspan="2" scope="col" class="table-warning">Twoje saldo to:</th>
+                        <th colspan="2" scope="col" class="table-warning text-center">Twoje saldo to:</th>
                     </tr>
                     </thead>
                     <tbody>
+                        {% for expenseSum in allUserExpenses%}
+                        {% for incomeSum in allUserIncomes%}
                     <tr>
-                        <td colspan="2">Suma Twoich przychodów:</td>
+                        <td colspan="2" class="text-center">{{ incomeSum.sum - expenseSum.sum }} zł</td>
                     </tr>
+                    {% if incomeSum.sum > expenseSum.sum %}
+                    <tr>
+                        <td colspan="2" class="text-center table-success">Wybornie zarządzasz swoimi finansami</td>
+                    </tr>
+                    {% elseif expenseSum.sum > incomeSum.sum %}
+                    <tr>
+                        <td colspan="2" class="text-center table-danger">Wpadniesz w długi!!!</td>
+                    </tr>
+                    {% else %}
+                        <td colspan="2" class="text-center table-info"> Widzę że lubisz życie na krawędzi</td>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
                     </tbody>
                 </table>
                 <div class="row">
@@ -210,7 +349,7 @@
                         function drawChart() {							  
                             var data = google.visualization.arrayToDataTable([
                             ['Suma Twoich przychodów', 'Kwota'],
-                            ['Wynagrodzenie', 10],
+                            ['Wynagrodzenie',  10],
                             ['Odsetki bankowe', 15],
                             ['Sprzedaż na Allegro', 24],
                             ['Inne przychodzy', 12],
