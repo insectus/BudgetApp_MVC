@@ -56,12 +56,14 @@ class Balance extends Authenticated
         $allClothes = MoneyRotation::getClothes($_POST['selectTimePeriode']);
         $allHygen = MoneyRotation::getHygen($_POST['selectTimePeriode']);
         $allKids = MoneyRotation::getKids($_POST['selectTimePeriode']);
+        $allRecreat = MoneyRotation::getRecreat($_POST['selectTimePeriode']);
         $allTrip = MoneyRotation::getTrip($_POST['selectTimePeriode']);
         $allSavin = MoneyRotation::getSavin($_POST['selectTimePeriode']);
         $allReti = MoneyRotation::getReti($_POST['selectTimePeriode']);
         $allDebt = MoneyRotation::getDebt($_POST['selectTimePeriode']);
         $allGift = MoneyRotation::getGift($_POST['selectTimePeriode']);
         $allAnoth = MoneyRotation::getAnoth($_POST['selectTimePeriode']);
+        $allRecreat = MoneyRotation::getRecreat($_POST['selectTimePeriode']);
 
         if ($allUserIncomes) {
            View::renderTemplate('Balance/show.html',[
@@ -71,22 +73,23 @@ class Balance extends Authenticated
             'allAllegro' => $allAllegro,
             'allAnother' => $allAnother,
             'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses,
-            'allUserExpenses' => $allUserExpenses
+            'allTransport' => $allTransport,
+            'allBooks' => $allBooks,
+            'allFood' => $allFood,
+            'allApart' => $allApart,
+            'allTelec' => $allTelec,
+            'allHealth' => $allHealth,
+            'allClothes' => $allClothes,
+            'allHygen' => $allHygen,
+            'allKids' => $allKids,
+            'allRecreat' => $allRecreat,
+            'allTrip' => $allTrip,
+            'allSavin' => $allSavin,
+            'allReti' => $allReti,
+            'allDebt' => $allDebt,
+            'allGift' => $allGift,
+            'allAnoth' => $allAnoth,
+            'allRecreat' => $allRecreat,
          ]);
            
 

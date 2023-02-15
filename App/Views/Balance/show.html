@@ -92,7 +92,7 @@
                             <tr>
                                 <td>Odsetki bankowe:</td>
                                 {% if interst.sum > 0 %}
-                                 <td class="text-center" value="{{ interst.sum }}" id="intrest">{{ interst.sum }} zł</td>
+                                 <td class="text-center">{{ interst.sum }} zł</td>
                                  {% else %}
                                 <td  class="text-center"> 0 zł</td> 
                                 {% endif %} 
@@ -139,176 +139,167 @@
                                     {% endif %}  
                                 </tr>
                                 {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Jedzenie:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Mieszkanie:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
+                                {% for transportSum in allTransport %}
                                 <tr>
                                     <td>Transport:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% if transportSum.sum > 0 %}
+                                    <td  class="text-center"> {{ transportSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Telekomunikacja:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Opieka zdrowotna:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Ubranie:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Higiena:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Dzieci:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Rozrywka:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Wycieczka:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
-                                <tr>
-                                    <td>Szkolenia:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
-                                    {% else %}
-                                    <td  class="text-center"> 0 zł</td> 
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
+                                {% for booksSum in allBooks %}
                                 <tr>
                                     <td>Książki:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% if booksSum.sum > 0 %}
+                                    <td  class="text-center"> {{ booksSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
+                                {% for foodSum in allFood %}
+                                <tr>
+                                    <td>Jedzenie:</td>
+                                    {% if foodSum.sum > 0 %}
+                                    <td  class="text-center"> {{ foodSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for apartSum in allApart %}
+                                <tr>
+                                    <td>Mieszkanie:</td>
+                                    {% if apartSum.sum > 0 %}
+                                    <td  class="text-center"> {{ apartSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for telecSum in allTelec %}
+                                <tr>
+                                    <td>Telekomunikacja:</td>
+                                    {% if telecSum.sum > 0 %}
+                                    <td  class="text-center"> {{ telecSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for healthSum in allHealth %}
+                                <tr>
+                                    <td>Zdrowie:</td>
+                                    {% if healthSum.sum > 0 %}
+                                    <td  class="text-center"> {{ healthSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for clothesSum in allClothes %}
+                                <tr>
+                                    <td>Ubrania:</td>
+                                    {% if clothesSum.sum > 0 %}
+                                    <td  class="text-center"> {{ clothesSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for hygienSum in allHygen %}
+                                <tr>
+                                    <td>Higiena:</td>
+                                    {% if hygienSum.sum > 0 %}
+                                    <td  class="text-center"> {{ hygienSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for kidsSum in allKids %}
+                                <tr>
+                                    <td>Dzieci:</td>
+                                    {% if kidsSum.sum > 0 %}
+                                    <td  class="text-center"> {{ kidsSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for recreatSum in allRecreat %}
+                                <tr>
+                                    <td>Rozrywka:</td>
+                                    {% if recreatSum.sum > 0 %}
+                                    <td  class="text-center"> {{ recreatSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for tripSum in allTrip %}
+                                <tr>
+                                    <td>Wycieczka:</td>
+                                    {% if tripSum.sum > 0 %}
+                                    <td  class="text-center"> {{ tripSum.sum }} zł</td>
+                                    {% else %}
+                                    <td  class="text-center"> 0 zł</td> 
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for savinSum in allSavin %}
                                 <tr>
                                     <td>Oszczędności:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% if savinSum.sum > 0 %}
+                                    <td  class="text-center"> {{ savinSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
+                                {% for retiSum in allReti %}
                                 <tr>
-                                    <td>Na emeryturę:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    <td>Emerytura:</td>
+                                    {% if retiSum.sum > 0 %}
+                                    <td  class="text-center"> {{ retiSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
+                                {% for debtSum in allDebt %}
                                 <tr>
                                     <td>Spłata długów:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% if debtSum.sum > 0 %}
+                                    <td  class="text-center"> {{ debtSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
+                                {% for giftSum in allGift %}
                                 <tr>
-                                    <td>Darowizna:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    <td>Darowizny:</td>
+                                    {% if giftSum.sum > 0 %}
+                                    <td  class="text-center"> {{ giftSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
-                                {% for expenseSum in allUserExpenses %}
+                                {% for anothSum in allAnoth %}
                                 <tr>
                                     <td>Inne wydatki:</td>
-                                    {% if incomeSum.sum > 0 %}
-                                    <td  class="text-center"> {{ expenseSum.sum }} zł</td>
+                                    {% if anothSum.sum > 0 %}
+                                    <td  class="text-center"> {{ anothSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
+                                
                                 </tbody>
                         </table>
                     </div>
@@ -340,19 +331,21 @@
                     {% endfor %}
                     </tbody>
                 </table>
+
                 <div class="row">
                     <div class="col" id="piechart_3d_income">
                         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                         <script type="text/javascript">
                         google.charts.load("current", {packages:["corechart"]});
                         google.charts.setOnLoadCallback(drawChart);						  
-                        function drawChart() {							  
+                        function drawChart() {	
+                            						  
                             var data = google.visualization.arrayToDataTable([
                             ['Suma Twoich przychodów', 'Kwota'],
-                            ['Wynagrodzenie',  10],
-                            ['Odsetki bankowe', 15],
-                            ['Sprzedaż na Allegro', 24],
-                            ['Inne przychodzy', 12],
+                            ['Wynagrodzenie',  {% for salary in allSalary %}{{ salary.sum }} {% endfor %} ],
+                            ['Odsetki bankowe', {% for interst in allIntrest %}{{ interst.sum }} {% endfor %} ],
+                            ['Sprzedaż na Allegro', {% for allegro in allAllegro %}{{ allegro.sum }} {% endfor %} ],
+                            ['Inne przychodzy', {% for another in allAnother %}{{ another.sum }} {% endfor %} ],
                             ]);							
 
                             var options = {
@@ -374,23 +367,22 @@
                         function drawChart() {
                             var data = google.visualization.arrayToDataTable([
                             ['Suma Twoich wydatków', 'Kwota'],
-                            ['Jedzenie', 13],
-                            ['Mieszkanie', 14],
-                            ['Transport', 24],
-                            ['Telekomunikacja', 53],
-                            ['Opieka Zdrowotna', 13],
-                            ['Ubranie', 33],
-                            ['Higiena', 35],
-                            ['Dzieci', 53],
-                            ['Rozrywka', 27],
-                            ['Wycieczka', 16],
-                            ['Szkolenia', 19],
-                            ['Książki',3],
-                            ['Oszczędności', 8],
-                            ['Na emeryturę', 11],
-                            ['Spłata długów', 25],
-                            ['Darowizna', 13],
-                            ['Inne wydatki',  23]
+                            ['Transport', {% for transport in allTransport %}{{ transport.sum }} {% endfor %} ],
+                            ['Książki', {% for books in allBooks %}{{ books.sum }} {% endfor %} ],
+                            ['Jedzenie', {% for food in allFood %}{{ food.sum }} {% endfor %} ],
+                            ['Mieszkanie', {% for apart in allApart %}{{ apart.sum }} {% endfor %} ],  
+                            ['Telekomunikacja', {% for telec in allTelec %}{{ telec.sum }} {% endfor %} ],
+                            ['Opieka Zdrowotna', {% for health in allHealth %}{{ health.sum }} {% endfor %} ],
+                            ['Ubranie', {% for clothes in allClothes %}{{clothes.sum }} {% endfor %} ],
+                            ['Higiena', {% for hygien in allHygen %}{{ hygien.sum }} {% endfor %} ],
+                            ['Dzieci', {% for kids in allKids %}{{ kids.sum }} {% endfor %} ],
+                            ['Rozrywka', {% for recreat in allRecreat %}{{ recreat.sum }} {% endfor %} ],
+                            ['Wycieczka', {% for trip in allTrip %}{{ trip.sum }} {% endfor %} ],                            
+                            ['Oszczędności', {% for savin in allSavin %}{{ savin.sum }} {% endfor %} ],
+                            ['Na emeryturę', {% for reti in allReti %}{{ reti.sum }} {% endfor %} ],
+                            ['Spłata długów', {% for debt in allDebt %}{{ debt.sum }} {% endfor %} ],
+                            ['Darowizna', {% for gift in allGift %}{{ gift.sum }} {% endfor %} ],
+                            ['Inne wydatki',  {% for anoth in allAnoth %}{{ anoth.sum }} {% endfor %} ]
                             ]);
 
                             var options = {
