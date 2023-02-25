@@ -33,7 +33,7 @@ class Mail
 		try {
 			//--Server settings
 			$mail->CharSet = 'UTF-8';
-			$mail->setLanguage('pl', '/vendor/phpmailer/phpmailer/language');
+			//$mail->setLanguage('pl', '/vendor/phpmailer/phpmailer/language');
 			$mail->isSMTP();                                            //Send using SMTP
 			$mail->Host       = Config::PHP_MAILER_HOST;                     //Set the SMTP server to send through
 			$mail->SMTPAuth   = true;                                   //Enable SMTP authentication

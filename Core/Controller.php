@@ -44,7 +44,7 @@ abstract class Controller
      */
     public function __call($name, $args)
     {
-        $method = $name . 'Action';
+        $method = $name . "Action";
 
         if (method_exists($this, $method)) {
             if ($this->before() !== false) {
@@ -84,7 +84,7 @@ abstract class Controller
     public function redirect($url)
     {
         header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
-        exit;
+        exit();
     }
 
     /**
@@ -95,7 +95,7 @@ abstract class Controller
      */
     public function requireLogin()
     {
-        if (! Auth::getUser()) {
+        if (!Auth::getUser()) {
 
             //Flash::addMessage('Please login to access that page');
             Flash::addMessage('Please login to access that page', Flash::INFO);

@@ -363,7 +363,7 @@ class User extends \Core\Model
         $text = View::getTemplate('Signup/activation_email.txt', ['url' => $url]);
         $html = View::getTemplate('Signup/activation_email.html', ['url' => $url]);
 
-        Mail::send($this->email, 'Aktywacja konta', $text, $html);
+        Mail::send($this->email, 'Aktywacja konta', $html, $text);
     }
 	
 	/**

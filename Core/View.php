@@ -22,7 +22,8 @@ class View
     {
         extract($args, EXTR_SKIP);
 
-        $file = dirname(__DIR__) . "/App/Views/$view";  // relative to Core directory
+        //$file = dirname(__DIR__) . "/App/Views/$view";  // relative to Core directory
+        $file = "../App/Views/$view";
 
         if (is_readable($file)) {
             require $file;

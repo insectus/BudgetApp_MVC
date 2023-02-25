@@ -10,7 +10,6 @@ namespace Core;
 class Router
 {
     protected $routes = [];
-
     protected $params = [];
 
     public function add($route, $params = [])
@@ -59,12 +58,10 @@ class Router
                         $params[$key] = $match;
                     }
                 }
-
                 $this->params = $params;
                 return true;
             }
         }
-
         return false;
     }
 
@@ -101,9 +98,8 @@ class Router
                 $action = $this->params['action'];
                 $action = $this->convertToCamelCase($action);
 
-                if (preg_match('/action$/i', $action) == 0)  {
+                if (preg_match('/action$/i', $action) == 0) {
                     $controller_object->$action();
-
                 } else {
                     throw new \Exception("Method $action (in controller $controller) not found");
                 }
@@ -175,7 +171,6 @@ class Router
                 $url = '';
             }
         }
-
         return $url;
     }
 
@@ -192,7 +187,6 @@ class Router
         if (array_key_exists('namespace', $this->params)) {
             $namespace .= $this->params['namespace'] . '\\';
         }
-
         return $namespace;
     }
 }
