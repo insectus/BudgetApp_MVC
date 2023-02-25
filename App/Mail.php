@@ -6,7 +6,6 @@ use App\Config;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\Language;
 
 
 /**
@@ -49,6 +48,7 @@ class Mail
 			$mail->addAddress($to);               //Name is optional
 
 			//--Content
+			$mail->CharSet = "UTF-8";
 			$mail->isHTML(true);                                  //Set email format to HTML
 			$mail->Subject = $subject;
 			$mail->Body    = $text;
