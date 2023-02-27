@@ -2,7 +2,19 @@ body{
 	margin-top: 2em;
 	background-color: #2F3336;
 	color: #efefef;
+	font-family: 'Source Serif Pro', serif;
+
 }
+
+.helloContainer
+{					
+	font-family: 'Oswald', sans-serif;
+	margin-top: 15vh;
+	text-align:center;	
+	font-weight: bold;
+	color:white;
+}
+
 footer{
 	margin-left: auto;
 	margin-right: auto;

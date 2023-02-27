@@ -332,6 +332,13 @@
                     </tbody>
                 </table>
 
+                <div class="col-12 col-lg-4 my-2">
+                    <h2 class="balance-heading text-center fs-3 fw-light">Wykres wydatków</h2>
+                    <div>
+                        <canvas id="expensesChart"></canvas>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col" id="piechart_3d_income">
                         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -342,10 +349,12 @@
                             						  
                             var data = google.visualization.arrayToDataTable([
                             ['Suma Twoich przychodów', 'Kwota'],
-                            ['Wynagrodzenie',  {% for salary in allSalary %}{{ salary.sum }} {% endfor %} ],
+                            ['Wynagrodzenie',  5 ],
+                            //['Wynagrodzenie',  {% for salary in allSalary %}{{ salary.sum }} {% endfor %} ],
+                            ['Odsetki bankowe', 7 ],
                             ['Odsetki bankowe', {% for interst in allIntrest %}{{ interst.sum }} {% endfor %} ],
-                            ['Sprzedaż na Allegro', {% for allegro in allAllegro %}{{ allegro.sum }} {% endfor %} ],
-                            ['Inne przychodzy', {% for another in allAnother %}{{ another.sum }} {% endfor %} ],
+                            //['Sprzedaż na Allegro', {% for allegro in allAllegro %}{{ allegro.sum }} {% endfor %} ],
+                            //['Inne przychodzy', {% for another in allAnother %}{{ another.sum }} {% endfor %} ],
                             ]);							
 
                             var options = {
@@ -367,22 +376,24 @@
                         function drawChart() {
                             var data = google.visualization.arrayToDataTable([
                             ['Suma Twoich wydatków', 'Kwota'],
-                            ['Transport', {% for transport in allTransport %}{{ transport.sum }} {% endfor %} ],
-                            ['Książki', {% for books in allBooks %}{{ books.sum }} {% endfor %} ],
-                            ['Jedzenie', {% for food in allFood %}{{ food.sum }} {% endfor %} ],
-                            ['Mieszkanie', {% for apart in allApart %}{{ apart.sum }} {% endfor %} ],  
-                            ['Telekomunikacja', {% for telec in allTelec %}{{ telec.sum }} {% endfor %} ],
-                            ['Opieka Zdrowotna', {% for health in allHealth %}{{ health.sum }} {% endfor %} ],
-                            ['Ubranie', {% for clothes in allClothes %}{{clothes.sum }} {% endfor %} ],
-                            ['Higiena', {% for hygien in allHygen %}{{ hygien.sum }} {% endfor %} ],
-                            ['Dzieci', {% for kids in allKids %}{{ kids.sum }} {% endfor %} ],
-                            ['Rozrywka', {% for recreat in allRecreat %}{{ recreat.sum }} {% endfor %} ],
-                            ['Wycieczka', {% for trip in allTrip %}{{ trip.sum }} {% endfor %} ],                            
-                            ['Oszczędności', {% for savin in allSavin %}{{ savin.sum }} {% endfor %} ],
-                            ['Na emeryturę', {% for reti in allReti %}{{ reti.sum }} {% endfor %} ],
-                            ['Spłata długów', {% for debt in allDebt %}{{ debt.sum }} {% endfor %} ],
-                            ['Darowizna', {% for gift in allGift %}{{ gift.sum }} {% endfor %} ],
-                            ['Inne wydatki',  {% for anoth in allAnoth %}{{ anoth.sum }} {% endfor %} ]
+                            ['Transport', 3 ],
+                            //['Transport', {% for transport in allTransport %}{{ transport.sum }} {% endfor %} ],
+                            ['Książki', 8 ],
+                            //['Książki', {% for books in allBooks %}{{ books.sum }} {% endfor %} ],
+                            //['Jedzenie', {% for food in allFood %}{{ food.sum }} {% endfor %} ],
+                            //['Mieszkanie', {% for apart in allApart %}{{ apart.sum }} {% endfor %} ],  
+                            //['Telekomunikacja', {% for telec in allTelec %}{{ telec.sum }} {% endfor %} ],
+                            //['Opieka Zdrowotna', {% for health in allHealth %}{{ health.sum }} {% endfor %} ],
+                            //['Ubranie', {% for clothes in allClothes %}{{clothes.sum }} {% endfor %} ],
+                            //['Higiena', {% for hygien in allHygen %}{{ hygien.sum }} {% endfor %} ],
+                            //['Dzieci', {% for kids in allKids %}{{ kids.sum }} {% endfor %} ],
+                            //['Rozrywka', {% for recreat in allRecreat %}{{ recreat.sum }} {% endfor %} ],
+                            //['Wycieczka', {% for trip in allTrip %}{{ trip.sum }} {% endfor %} ],                            
+                            //['Oszczędności', {% for savin in allSavin %}{{ savin.sum }} {% endfor %} ],
+                            //['Na emeryturę', {% for reti in allReti %}{{ reti.sum }} {% endfor %} ],
+                            //['Spłata długów', {% for debt in allDebt %}{{ debt.sum }} {% endfor %} ],
+                            //['Darowizna', {% for gift in allGift %}{{ gift.sum }} {% endfor %} ],
+                            //['Inne wydatki',  {% for anoth in allAnoth %}{{ anoth.sum }} {% endfor %} ]
                             ]);
 
                             var options = {
@@ -400,4 +411,9 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block footer %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/pieChart.js"></script>
 {% endblock %}

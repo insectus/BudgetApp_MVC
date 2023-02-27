@@ -14,7 +14,7 @@
 						<p>Ta aplikacja ma za zadanie pomóc Ci w zarządzaniu Twoim budżetem.</p>
 					</header>
 					
-					<p>Co chcesz zrobić?</p>
+					<p>Panel nawigacji</p>
 					<p>Jeżeli chcesz dodać wydatek przejdż do zakładki: <a class="nav-link" href="/expenses/new">Wydatki</a></p>
 					<br>
 					<p>Jeżeli chcesz dodać przychód przejdż do zakładki: <a class="nav-link" href="/incomes/new">Przychody</a></p>								
@@ -24,9 +24,14 @@
 				</div>
 				
 				{% else %}
-				<h1>Cześć</h1>
-					<a class="nav-link" href="/signup/new">Zarejestruj się!</a> lub
-					<a class="nav-link" href="/login">Zaloguj się!</a>
+				<div class="col p-5 helloContainer">
+				<h1><i>"Gentlemen don't talk about money..."</h1>
+				<p><h2>They have money!</i></h2></p>
+				<p><h3><b>Be a gentlemen!</b></h3></p>
+				<button class="btn btn-success"><a class="nav-link" href="/signup/new">Zarejestruj się!</a></button>
+					<p></p>
+				<button class="btn btn-secondary"><a class="nav-link" href="/login">Zaloguj się jeśli masz już konto</a></button>
+				</div>
 				{% endif %}		
 			</div>
 		</div>
