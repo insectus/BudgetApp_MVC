@@ -7,56 +7,59 @@
 <div class="container text-center">
     <div class="row align-items-start">
         <div class="col p-5" >
-            <form action="/expenses/addExpense" method="post">    
-                <h3> Dodaj wydatek</h3>
-                
-                <div class="form-group mt-1">					
-                    <fieldset>						
-                        <legend class="col-sm-2 col-form-label col-form-label-sm"> Kwota: </legend>				
-                        <input class="form-control"  type="number" name="currency_field" value="{{ income.amount }}" step="0.01" min="0.00" id="currency-field" value="" data-type="currency" placeholder="10.00 PLN" required>					
-                    </fieldset>					
-                </div>
-                
-                <div class="form-group mt-1">				
-                    <fieldset>						
-                        <legend class="col-sm-2 col-form-label col-form-label-sm"> Data: </legend>						
-                        <input class="form-control"  type="date" value="{{ income.date_of_expense }}" name = "date" min="2000-01-01" id="date" required>				
-                    </fieldset>				
-                </div>
-                
-                <div class="form-group mt-1">		
-                    <legend class="col-sm-2 col-form-label col-form-label-sm"> Kategoria: </legend>
-                        <select class="form-select"  name = "selectCategory" value="{{ income.expense_category_assigned_to_user_id }}" >
-                            <option selected value = 1>Transport</option>
-                            <option value = 2>Książki</option>
-                            <option value = 3>Jedzenie</option>
-                            <option value = 4>Mieszkanie</option>
-                            <option value = 5>Telekomunikacja</option>                   
-                            <option value = 6>Opieka zdrowotna</option>
-                            <option value = 7>Ubranie</option>
-                            <option value = 8>Higiena</option>
-                            <option value = 9>Dzieci</option>
-                            <option value = 10>Rozrywka</option>
-                            <option value = 11>Wycieczka</option>
-                            <option value = 12>Oszczędności</option>
-                            <option value = 13>Na emeryturę</option>
-                            <option value = 14>Spłata długów</option>
-                            <option value = 15>Darowizna</option>
-                            <option value = 16>Inne wydatki</option>
-                        </select>
-                </div>
-               
-                <div class="form-group mt-3">
-                    <label for="comment"> Komentarz (opcjonalnie): </label>
-                    <textarea class="form-control" name="comment" id="comment" maxlength="100" minlength="5"  placeholder="To jest miejsce na Twoje notatki"></textarea>
+            <form action="/expenses/addExpense" method="post"> 
+                <div class="row justify-content-md-center text-center">
+                    <div class="col-lg-6">     
+                        <h3> Dodaj wydatek</h3>
+                        
+                        <div class="form-group mt-1">					
+                            <fieldset>						
+                                <legend class="col-sm-2 col-form-label col-form-label-sm"> Kwota: </legend>				
+                                <input class="form-control"  type="number" name="currency_field" value="{{ income.amount }}" step="0.01" min="0.00" id="currency-field" value="" data-type="currency" placeholder="10.00 PLN" required>					
+                            </fieldset>					
+                        </div>
+                        
+                        <div class="form-group mt-1">				
+                            <fieldset>						
+                                <legend class="col-sm-2 col-form-label col-form-label-sm"> Data: </legend>						
+                                <input class="form-control"  type="date" value="{{ income.date_of_expense }}" name = "date" min="2000-01-01" id="date" required>				
+                            </fieldset>				
+                        </div>
+                        
+                        <div class="form-group mt-1">		
+                            <legend class="col-sm-2 col-form-label col-form-label-sm"> Kategoria: </legend>
+                                <select class="form-select"  name = "selectCategory" value="{{ income.expense_category_assigned_to_user_id }}" >
+                                    <option selected value = 1>Transport</option>
+                                    <option value = 2>Książki</option>
+                                    <option value = 3>Jedzenie</option>
+                                    <option value = 4>Mieszkanie</option>
+                                    <option value = 5>Telekomunikacja</option>                   
+                                    <option value = 6>Opieka zdrowotna</option>
+                                    <option value = 7>Ubranie</option>
+                                    <option value = 8>Higiena</option>
+                                    <option value = 9>Dzieci</option>
+                                    <option value = 10>Rozrywka</option>
+                                    <option value = 11>Wycieczka</option>
+                                    <option value = 12>Oszczędności</option>
+                                    <option value = 13>Na emeryturę</option>
+                                    <option value = 14>Spłata długów</option>
+                                    <option value = 15>Darowizna</option>
+                                    <option value = 16>Inne wydatki</option>
+                                </select>
+                        </div>
                     
+                        <div class="form-group mt-3">
+                            <label for="comment"> Komentarz (opcjonalnie): </label>
+                            <textarea class="form-control" name="comment" id="comment" maxlength="100" minlength="5"  placeholder="To jest miejsce na Twoje notatki"></textarea>
+                            
+                        </div>
+                        
+                        <div class="form-group p-3">
+                            <button class="btn btn-success" type="submit" class="btn btn-default">Dodaj</button>
+                            <a class="nav-link" href="/expenses/new">Anuluj</a>
+                        </div>	
+                    </div>	
                 </div>
-                
-                <div class="form-group p-3">
-                    <button class="btn btn-success" type="submit" class="btn btn-default">Dodaj</button>
-                    <a class="nav-link" href="/expenses/new">Anuluj</a>
-                </div>		
-                
             </form>
         </div>
     </div>
