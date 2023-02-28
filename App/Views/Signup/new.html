@@ -98,10 +98,14 @@
 				<p></p>
 				<div class="form-group">
 					<div class="input-group mb-3">
-						<span class="input-group-text">&#x1F511</span>	
-						<input class="form-control" type="password" id="inputPassword" name="password" placeholder="Hasło" required="" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" title="Minimum 6 chars, at least one letter and number" class="form-control" />
+						<span class="input-group-text" id="basic-addon1">&#x1F511</span>
+					  <input name="password" type="password" value="" class="input form-control" id="password" placeholder="Hasło" required="true" aria-label="password" aria-describedby="basic-addon1" />
+						<span class="input-group-text" onclick="password_show_hide();">
+						  <i class="fas fa-eye" id="show_eye"></i>
+						  <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+						</span>
 					</div>
-				</div>
+				</div> 
 
 				<p></p>
 				<div class="container text-center">

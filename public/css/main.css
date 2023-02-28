@@ -31,3 +31,8 @@ textarea{
 	background-color: yellowgreen;
 	color: black;
 }
+#password:focus ~ .bi-eye-slash{
+	margin-left: -30px !important; 
+	cursor: pointer !important;
+	z-index: 100 !important;
+	}
