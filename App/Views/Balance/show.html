@@ -82,7 +82,7 @@
                             <tr>
                                 <td>Wynagrodzenie:</td>
                                 {% if salary.sum > 0 %}
-                                <td class="text-center">{{ salary.sum }} zł</td> 
+                                <td class="text-center" id="salary">{{ salary.sum }} zł</td> 
                                 {% else %}
                                 <td  class="text-center"> 0 zł</td> 
                                 {% endif %}                     
@@ -92,7 +92,7 @@
                             <tr>
                                 <td>Odsetki bankowe:</td>
                                 {% if interst.sum > 0 %}
-                                 <td class="text-center">{{ interst.sum }} zł</td>
+                                 <td class="text-center" id="interst">{{ interst.sum }} zł</td>
                                  {% else %}
                                 <td  class="text-center"> 0 zł</td> 
                                 {% endif %} 
@@ -102,7 +102,7 @@
                             <tr>
                                 <td>Sprzedaż na Allegro:</td>
                                 {% if allegro.sum > 0 %}
-                                <td class="text-center">{{ allegro.sum }} zł</td>
+                                <td class="text-center" id="allegro">{{ allegro.sum }} zł</td>
                                 {% else %}
                                 <td  class="text-center"> 0 zł</td> 
                                 {% endif %} 
@@ -112,7 +112,7 @@
                             <tr>
                                 <td>Inne przychody:</td>
                                 {% if another.sum > 0 %}
-                                <td class="text-center">{{ another.sum }} zł</td>
+                                <td class="text-center" id="another">{{ another.sum }} zł</td>
                                 {% else %}
                                 <td  class="text-center"> 0 zł</td> 
                                 {% endif %} 
@@ -143,7 +143,7 @@
                                 <tr>
                                     <td>Transport:</td>
                                     {% if transportSum.sum > 0 %}
-                                    <td  class="text-center"> {{ transportSum.sum }} zł</td>
+                                    <td  class="text-center" id="transportSum"> {{ transportSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -153,7 +153,7 @@
                                 <tr>
                                     <td>Książki:</td>
                                     {% if booksSum.sum > 0 %}
-                                    <td  class="text-center"> {{ booksSum.sum }} zł</td>
+                                    <td  class="text-center" id="booksSum"> {{ booksSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -163,7 +163,7 @@
                                 <tr>
                                     <td>Jedzenie:</td>
                                     {% if foodSum.sum > 0 %}
-                                    <td  class="text-center"> {{ foodSum.sum }} zł</td>
+                                    <td  class="text-center" id="foodSumm"> {{ foodSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -173,7 +173,7 @@
                                 <tr>
                                     <td>Mieszkanie:</td>
                                     {% if apartSum.sum > 0 %}
-                                    <td  class="text-center"> {{ apartSum.sum }} zł</td>
+                                    <td  class="text-center" id="apartSum"> {{ apartSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -183,7 +183,7 @@
                                 <tr>
                                     <td>Telekomunikacja:</td>
                                     {% if telecSum.sum > 0 %}
-                                    <td  class="text-center"> {{ telecSum.sum }} zł</td>
+                                    <td  class="text-center" id="telecSum"> {{ telecSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -193,7 +193,7 @@
                                 <tr>
                                     <td>Zdrowie:</td>
                                     {% if healthSum.sum > 0 %}
-                                    <td  class="text-center"> {{ healthSum.sum }} zł</td>
+                                    <td  class="text-center" id="healthSum"> {{ healthSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -203,7 +203,7 @@
                                 <tr>
                                     <td>Ubrania:</td>
                                     {% if clothesSum.sum > 0 %}
-                                    <td  class="text-center"> {{ clothesSum.sum }} zł</td>
+                                    <td  class="text-center" id="clothesSum"> {{ clothesSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -213,7 +213,7 @@
                                 <tr>
                                     <td>Higiena:</td>
                                     {% if hygienSum.sum > 0 %}
-                                    <td  class="text-center"> {{ hygienSum.sum }} zł</td>
+                                    <td  class="text-center" id="hygienSum"> {{ hygienSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -223,7 +223,7 @@
                                 <tr>
                                     <td>Dzieci:</td>
                                     {% if kidsSum.sum > 0 %}
-                                    <td  class="text-center"> {{ kidsSum.sum }} zł</td>
+                                    <td  class="text-center" id="kidsSum"> {{ kidsSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -233,7 +233,7 @@
                                 <tr>
                                     <td>Rozrywka:</td>
                                     {% if recreatSum.sum > 0 %}
-                                    <td  class="text-center"> {{ recreatSum.sum }} zł</td>
+                                    <td  class="text-center" id="recreatSum"> {{ recreatSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -243,7 +243,7 @@
                                 <tr>
                                     <td>Wycieczka:</td>
                                     {% if tripSum.sum > 0 %}
-                                    <td  class="text-center"> {{ tripSum.sum }} zł</td>
+                                    <td  class="text-center" id="tripSum"> {{ tripSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -253,7 +253,7 @@
                                 <tr>
                                     <td>Oszczędności:</td>
                                     {% if savinSum.sum > 0 %}
-                                    <td  class="text-center"> {{ savinSum.sum }} zł</td>
+                                    <td  class="text-center" id="savinSum"> {{ savinSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -263,7 +263,7 @@
                                 <tr>
                                     <td>Emerytura:</td>
                                     {% if retiSum.sum > 0 %}
-                                    <td  class="text-center"> {{ retiSum.sum }} zł</td>
+                                    <td  class="text-center" id="retiSum"> {{ retiSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -273,7 +273,7 @@
                                 <tr>
                                     <td>Spłata długów:</td>
                                     {% if debtSum.sum > 0 %}
-                                    <td  class="text-center"> {{ debtSum.sum }} zł</td>
+                                    <td  class="text-center" id="debtSum"> {{ debtSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -283,7 +283,7 @@
                                 <tr>
                                     <td>Darowizny:</td>
                                     {% if giftSum.sum > 0 %}
-                                    <td  class="text-center"> {{ giftSum.sum }} zł</td>
+                                    <td  class="text-center" id="giftSum" id="booksSum"> {{ giftSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -293,7 +293,7 @@
                                 <tr>
                                     <td>Inne wydatki:</td>
                                     {% if anothSum.sum > 0 %}
-                                    <td  class="text-center"> {{ anothSum.sum }} zł</td>
+                                    <td  class="text-center" id="anothSum"> {{ anothSum.sum }} zł</td>
                                     {% else %}
                                     <td  class="text-center"> 0 zł</td> 
                                     {% endif %}
@@ -332,6 +332,8 @@
                     </tbody>
                 </table>
 
+                
+
                 <div class="row">
                     <div class="col" id="piechart_3d_income">
                         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -339,15 +341,12 @@
                         google.charts.load("current", {packages:["corechart"]});
                         google.charts.setOnLoadCallback(drawChart);						  
                         function drawChart() {	
-                            						  
                             var data = google.visualization.arrayToDataTable([
                             ['Suma Twoich przychodów', 'Kwota'],
-                            ['Wynagrodzenie',  5 ],
-                            //['Wynagrodzenie',  {% for salary in allSalary %}{{ salary.sum }} {% endfor %} ],
-                            ['Odsetki bankowe', 7 ],
-                            ['Odsetki bankowe', {% for interst in allIntrest %}{{ interst.sum }} {% endfor %} ],
-                            //['Sprzedaż na Allegro', {% for allegro in allAllegro %}{{ allegro.sum }} {% endfor %} ],
-                            //['Inne przychodzy', {% for another in allAnother %}{{ another.sum }} {% endfor %} ],
+                            ['Wynagrodzenie',  "1"],
+                            ['Odsetki bankowe', "1"],
+                            ['Sprzedaż na Allegro', "2"],
+                            ['Inne przychodzy', "3"],
                             ]);							
 
                             var options = {
@@ -366,13 +365,12 @@
                         
                         google.charts.load("current", {packages:["corechart"]});
                         google.charts.setOnLoadCallback(drawChart);
+                        
                         function drawChart() {
                             var data = google.visualization.arrayToDataTable([
                             ['Suma Twoich wydatków', 'Kwota'],
-                            ['Transport', 3 ],
-                            //['Transport', {% for transport in allTransport %}{{ transport.sum }} {% endfor %} ],
-                            ['Książki', 8 ],
-                            //['Książki', {% for books in allBooks %}{{ books.sum }} {% endfor %} ],
+                            ['Transport', "2"],
+                            //['Książki', number],
                             //['Jedzenie', {% for food in allFood %}{{ food.sum }} {% endfor %} ],
                             //['Mieszkanie', {% for apart in allApart %}{{ apart.sum }} {% endfor %} ],  
                             //['Telekomunikacja', {% for telec in allTelec %}{{ telec.sum }} {% endfor %} ],
@@ -385,7 +383,7 @@
                             //['Oszczędności', {% for savin in allSavin %}{{ savin.sum }} {% endfor %} ],
                             //['Na emeryturę', {% for reti in allReti %}{{ reti.sum }} {% endfor %} ],
                             //['Spłata długów', {% for debt in allDebt %}{{ debt.sum }} {% endfor %} ],
-                            //['Darowizna', {% for gift in allGift %}{{ gift.sum }} {% endfor %} ],
+                            //['Darowizna', tdElem ],
                             //['Inne wydatki',  {% for anoth in allAnoth %}{{ anoth.sum }} {% endfor %} ]
                             ]);
 
@@ -400,13 +398,58 @@
                         </script>
                     </div>
                 </div>
+                <div class="container">
+                    <canvas id="myChart"></canvas>
+                  </div>
+                
+                  <script>
+                    // Kod JavaScript do stworzenia wykresu
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [12, 19, 3, 5, 2, 3],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                  </script>
             </div>
         </div>
     </div>
 </div>
+
+
 {% endblock %}
 
 {% block footer %}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/js/pieChart.js"></script>
+
 {% endblock %}
