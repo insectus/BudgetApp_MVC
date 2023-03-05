@@ -8,6 +8,7 @@ use \App\Models\MoneyRotation;
 use \App\Auth;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\UX\Chartjs\Model\Chart;
+use function Symfony\Component\Serializer\Encoder\json_encode;
 
 /**
  * Balance controller (example)
@@ -91,8 +92,7 @@ class Balance extends Authenticated
             'allGift' => $allGift,
             'allAnoth' => $allAnoth,
             'allRecreat' => $allRecreat,
-         ]);
-
+         ]);    
        } else {
             Flash::addMessage('Niepowodzenie! Spróbuj ponownie wyświetlić bilas');
 
